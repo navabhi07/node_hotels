@@ -1,9 +1,11 @@
 const mongoose=require('mongoose')
-
+require('dotenv').config();
 
 //define mongodb connection url
-const mongoURL= 'mongodb://localhost:27017/hotels'
+//const mongoURL=process.env.MONGODB_URL_LOCAL; // it is local database(mongodb compass)
 
+//this is global database connection mongodbatlas cluster(MONGODB ATLAS CLUSSTER)
+const mongoURL=process.env.MONGODB_URL; //it is connected to online cluster setup through mongodb atlas
 
 //setup connection of db
 mongoose.connect (mongoURL,{

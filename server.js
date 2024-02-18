@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
  const db=require('./db');
+ require('dotenv').config();
  
 
 const bodyparser=require('body-parser');
 app.use(bodyparser.json());
 
+const PORT=process.env.PORT||3000;
 
 
 // by moving all endpoints through express router method
@@ -27,9 +29,12 @@ app.get('/', function (req, res) {
 })
 
 
+
+
 // for checking of server live hai ki nhi we use a function inside listen 
 //to check listening
-app.listen(3000,()=>
+
+app.listen(PORT,()=>
 {
   console.log('listening on port 3000')
 })
